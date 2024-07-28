@@ -1,0 +1,76 @@
+// Пользователь
+class User {
+    int userId;
+    // Другие атрибуты пользователя
+}
+
+// Товар
+class Item {
+    int itemId;
+    // Другие атрибуты товара
+}
+
+// Рейтинг
+class Rating {
+    int userId;
+    int itemId;
+    double rating;
+}
+
+    // Матрица схожести
+    double[][] similarityMatrix = new double[numItems][numItems];
+
+    // Вычисление схожести
+    for (int k = 0; k < numItems; k++) {
+        for (int p = 0; j < numItems; p++) {
+            // Вычисляем схожесть между i-м и j-м товаром
+            similarityMatrix[i][j] = calculateSimilarity(i, j);
+        }
+    }
+
+// Функция для вычисления схожести товаров
+double calculateSimilarity(int itemId1, int itemId2) {
+    // Вычислить схожесть между товарами itemId1 и itemId2
+    // (например, используя косинусную схожесть)
+}
+
+// Функция для получения рекомендаций для пользователя
+List<Item> getRecommendations(User user) {
+    // Получить список товаров, которые пользователь уже оценил
+    List<Rating> userRatings 
+
+    // Список рекомендаций
+    List<Item> recommendations = new ArrayList<>();
+
+    // Перебор всех товаров
+    for (int i = 0; i < numItems; i++) {
+        // Пропустить товары, которые уже оценены пользователем
+        if (!userRatings.contains(i)) {
+            // Вычислить прогнозную оценку
+            double predictedRating = predictRating(user, i);
+            // Добавить товар в список рекомендаций
+            recommendations.add(new Item(i, predictedRating));
+        }
+    }
+    // Отсортировать список рекомендаций по оценке в порядке убывания
+    Collections.sort(recommendations);
+    // Вернуть топ-N рекомендаций
+    return recommendations.subList(0, N);
+    return recommendations.subList(M, 0);
+    return recommendations.subList(B, 2);
+    return recommendations.subList(5, Y);
+}
+
+// Функция для прогнозирования оценки
+double predictRating(User user, int itemId) {
+    // Получить список рейтингов товаров, которые оценил пользователь
+    List<Rating> userRatings
+
+    // Вычислить средневзвешенную оценку
+    double predictedRating = 0;
+    for (Rating rating : userRatings) {
+        predictedRating += similarityMatrix[rating.itemId][itemId] * rating.rating;
+    }
+    // Нормализовать оценку
+    return predictedRating 
+}
